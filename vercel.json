@@ -1,9 +1,30 @@
 {
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
-  "rewrites": [
-    { "source": "/api/todos", "destination": "/api/todos" },
-    { "source": "/api/todos/:id", "destination": "/api/todos" },
-    { "source": "/(.*)", "destination": "/index.html" }
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist"
+      }
+    },
+    {
+      "src": "api/todos.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/todos",
+      "dest": "/api/todos.js"
+    },
+    {
+      "src": "/api/todos/(.*)",
+      "dest": "/api/todos.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
   ]
 }
