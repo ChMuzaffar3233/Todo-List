@@ -1,4 +1,6 @@
 {
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
   "rewrites": [
     { "source": "/api/todos", "destination": "/api/todos" },
     { "source": "/api/todos/:id", "destination": "/api/todos" },
