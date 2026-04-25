@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import Create from './Create'
 
-const API = 'http://localhost:5000/api/todos'
+const API = '/api/todos'
 
 function Home() {
   const [todos, setTodos] = useState([]);
